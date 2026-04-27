@@ -1,6 +1,4 @@
-const SOCKET_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? 'http://localhost:5000' 
-  : 'https://backend-dataquiz.onrender.com';
+const SOCKET_URL = 'https://backend-dataquiz.onrender.com';
 
 const state = JSON.parse(sessionStorage.getItem('player_state')) || { name: 'Username', score: 0, rank: 1 }
 let currentQ = parseInt(sessionStorage.getItem('current_question') || '0')

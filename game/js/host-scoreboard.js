@@ -1,6 +1,4 @@
-const SOCKET_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? 'http://localhost:5000' 
-  : 'https://backend-dataquiz.onrender.com';
+const SOCKET_URL = 'https://backend-dataquiz.onrender.com';
 
 const quizData = JSON.parse(localStorage.getItem('current_quiz') || 'null')
 const totalQ = quizData ? quizData.questions.length : 0

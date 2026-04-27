@@ -3,7 +3,7 @@
 // Utility ที่ใช้ทุกหน้า
 // =====================
 
-const API = 'http://localhost:5000/api'
+const API = 'https://backend-dataquiz.onrender.com/api'
 
 /* ---- Token Helpers ---- */
 function getToken() {
