@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Editor – DataQuiz</title>
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/quiz-editor.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="editor-topbar">
+    <a href="../index.html" class="topbar-logo">QuizDATA</a>
+
+    <div class="topbar-title-wrap">
+      <input
+        type="text"
+        id="quiz-title-input"
+        class="topbar-title-input"
+        placeholder="Enter quiz title"
+        maxlength="80"
+      />
+    </div>
+
+    <div class="topbar-actions">
+      <button class="topbar-btn btn-exit" onclick="confirmExit()">Exit</button>
+      <button class="topbar-btn btn-save" onclick="saveQuiz()">Save</button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN EDITOR ===== -->
+  <main class="editor-main">
+
+    <!-- Background image layer -->
+    <div class="editor-bg"></div>
+
+    <!-- ===== QUESTION TABS ===== -->
+    <div class="question-tabs" id="question-tabs">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- ===== QUESTION EDITOR CARD ===== -->
+    <div class="editor-card">
+
+      <!-- Question input -->
+      <div class="question-input-wrap">
+        <input
+          type="text"
+          id="question-text"
+          class="question-input"
+          placeholder="Enter your question"
+          maxlength="200"
+        />
+      </div>
+
+      <!-- Media upload -->
+      <div class="media-upload-area" id="media-upload-area" onclick="triggerUpload()">
+        <div class="media-upload-inner" id="media-preview">
+          <div class="upload-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <span class="upload-hint">Click to upload image</span>
+        </div>
+        <input type="file" id="media-file-input" accept="image/*" style="display:none" onchange="handleImageUpload(event)"/>
+      </div>
+
+      <!-- Answer options (2x2 grid) -->
+      <div class="answers-grid">
+        <div class="answer-option answer-cyan">
+          <input type="text" placeholder="Type answer option here" class="answer-input" data-index="0"/>
+          <button class="answer-correct-btn" title="Mark as correct" onclick="toggleCorrect(this)">✓</button>
+        </div>
+        <div class="answer-option answer-red">
+          <input type="text" placeholder="Type answer option here" class="answer-input" data-index="1"/>
+          <button class="answer-correct-btn" title="Mark as correct" onclick="toggleCorrect(this)">✓</button>
+        </div>
+        <div class="answer-option answer-purple">
+          <input type="text" placeholder="Type answer option here" class="answer-input" data-index="2"/>
+          <button class="answer-correct-btn" title="Mark as correct" onclick="toggleCorrect(this)">✓</button>
+        </div>
+        <div class="answer-option answer-yellow">
+          <input type="text" placeholder="Type answer option here" class="answer-input" data-index="3"/>
+          <button class="answer-correct-btn" title="Mark as correct" onclick="toggleCorrect(this)">✓</button>
+        </div>
+      </div>
+
+    </div>
+    <!-- end editor-card -->
+
+  </main>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/quiz-editor.js"></script>
+</body>
+</html>

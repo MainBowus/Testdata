@@ -1,0 +1,67 @@
+/* ===========================
+   css/host-question.css - Redesign
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #05162a;
+  --accent-cyan: #00d2ff;
+  --text-white: #ffffff;
+}
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #05162a 0%, #0d2137 50%, #162e4a 100%);
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hq-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== COUNTDOWN SCREEN ===== */
+.getready-content {
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.gr-label {
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.gr-countdown {
+  font-size: 280px; /* Massive countdown number */
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: bounceTick 1s infinite;
+}
+
+@keyframes bounceTick {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Hidden state for transition */
+.hidden { display: none !important; }
+
+/* ===== QUESTION SCREEN (Displaying) ===== */
+/* Note: You asked for the 3-2-1 countdown page design specifically. 
+   I will ensure this page focus is on the countdown. */

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Questions – DataQuiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/create-question.css" />
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="editor-topbar">
+    <a href="../index.html" class="topbar-logo">
+       <img src="../assets/images/logo.png" alt="Logo">
+    </a>
+
+    <div class="topbar-title-wrap">
+      <input
+        type="text"
+        id="quiz-title-input"
+        class="topbar-title-input"
+        placeholder="quiz title"
+        maxlength="80"
+        readonly
+      />
+    </div>
+
+    <div class="topbar-actions">
+      <button class="topbar-btn btn-back" onclick="goBack()">Back</button>
+      <button class="topbar-btn btn-save" onclick="saveQuiz()">Save</button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN EDITOR ===== -->
+  <main class="editor-main">
+
+    <div class="question-tabs" id="question-tabs">
+       <!-- Dynamic tabs like 1 2 3 + -->
+    </div>
+
+    <div class="question-input-wrap">
+      <input type="text" id="question-text" class="question-input" placeholder="Enter your question" maxlength="200" />
+    </div>
+
+    <div class="media-upload-area" id="media-upload-area" onclick="triggerUpload()">
+      <div class="media-upload-inner" id="media-preview">
+        <div class="upload-icon">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+      </div>
+      <input type="file" id="media-file-input" accept="image/*" style="display:none" onchange="handleImageUpload(event)"/>
+    </div>
+
+    <div class="answers-grid" id="answers-container">
+      <!-- Logic in create-question.js will fill this -->
+    </div>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="../js/quiz-editor.js"></script>
+  <script src="../js/create-question.js"></script>
+</body>
+</html>

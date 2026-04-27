@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #05162a;
+  --accent-cyan: #00d2ff;
+  --card-bg: #1c2c43;
+}
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #05162a 0%, #0d2137 50%, #162e4a 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+.player-header {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-badge {
+  background: var(--card-bg);
+  padding: 10px 25px;
+  border: 1.5px solid #000;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* ===== MAIN ===== */
+.player-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.lobby-content {
+  max-width: 800px;
+}
+
+.quiz-title {
+  font-size: clamp(32px, 5vw, 60px);
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.title-underline {
+  width: 200px;
+  height: 8px;
+  background: #aaa;
+  margin: 0 auto 40px;
+  border-radius: 4px;
+}
+
+.waiting-msg {
+  font-size: 32px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.5px;
+}

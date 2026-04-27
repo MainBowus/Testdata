@@ -1,0 +1,84 @@
+.setup-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.setup-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.form-group { margin-bottom: 25px; }
+.form-group label {
+  display: block;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.setup-input {
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: none;
+  background: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  outline: none;
+  color: #333;
+}
+.image-upload-box {
+  width: 100%;
+  height: 200px;
+  background: rgba(255,255,255,0.05);
+  border: 2px dashed rgba(255,255,255,0.3);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.image-upload-box img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.type-card {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.type-card.active {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 210, 255, 0.1);
+}
+.type-card i { font-size: 32px; display: block; margin-bottom: 10px; }
+.btn-create-quiz {
+  width: 100%;
+  padding: 18px;
+  background: #ff4757;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+}

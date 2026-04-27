@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Answering – DataQuiz</title>
+  <link rel="stylesheet" href="../css/player-answering.css?v=3" />
+</head>
+<body>
+  <div class="player-bg" style="position: fixed; inset: 0; z-index: -1; background: linear-gradient(135deg, #05162a 0%, #0d2137 50%, #162e4a 100%);"></div>
+
+  <div class="hq-hud">
+    <div class="hud-left">
+      <div class="user-badge" id="display-name">Username</div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-box" id="hud-timer">TIME 30</div>
+      <div class="hud-box" id="hud-progress">1 / 10</div>
+      <div class="hud-box" id="hud-stats">#1 Score 0</div>
+    </div>
+  </div>
+
+  <main class="player-main">
+    <div class="question-container">
+      <div class="question-text-box" id="q-text">What is this character called?</div>
+    </div>
+    <div class="question-image-area" id="q-image-wrap">
+      <img id="q-image" src="" alt="Question image" />
+    </div>
+    <div class="answer-grid" id="multiple-choice-grid">
+      <button class="ans-btn" id="ans-0" onclick="submitAnswer(0)">Answer 1</button>
+      <button class="ans-btn" id="ans-1" onclick="submitAnswer(1)">Answer 2</button>
+      <button class="ans-btn" id="ans-2" onclick="submitAnswer(2)">Answer 3</button>
+      <button class="ans-btn" id="ans-3" onclick="submitAnswer(3)">Answer 4</button>
+    </div>
+    <div class="open-ended-area" id="open-ended-area" style="display:none;width:100%;max-width:800px;gap:20px;flex-direction:column;align-items:center;">
+      <input type="text" id="open-ended-input" placeholder="Type your answer here..." style="width:100%;padding:20px;border-radius:15px;border:2px solid #000;font-family:'Archivo Black',sans-serif;font-size:28px;background:var(--box-bg);color:#fff;text-align:center;" />
+      <button class="ans-btn" style="text-align:center;width:200px;" onclick="submitOpenEnded()">SUBMIT</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="../js/player-answering.js"></script>
+</body>
+</html>

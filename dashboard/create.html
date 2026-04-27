@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Quiz – DataQuiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/explore.css" />
+  <style>
+    .setup-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 40px;
+      background: var(--card-bg);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .setup-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .form-group { margin-bottom: 25px; }
+    .form-group label {
+      display: block;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .setup-input {
+      width: 100%;
+      padding: 15px 25px;
+      border-radius: 50px;
+      border: none;
+      background: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      outline: none;
+    }
+    .image-upload-box {
+      width: 100%;
+      height: 200px;
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.3);
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+    .image-upload-box img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .type-card {
+      background: rgba(255,255,255,0.05);
+      border: 2px solid transparent;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .type-card.active {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 210, 255, 0.1);
+    }
+    .type-card i { font-size: 32px; display: block; margin-bottom: 10px; }
+    .btn-create-quiz {
+      width: 100%;
+      padding: 18px;
+      background: #ff4757;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 22px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <img src="../assets/images/logo.png" alt="QuizDATA Logo" />
+    </a>
+    <div class="nav-btns">
+      <a href="explore.html" class="nav-btn nav-btn-explore">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Explore</span>
+      </a>
+      <a href="create.html" class="nav-btn nav-btn-create" style="color: var(--accent-cyan); border-color: var(--accent-cyan);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Create</span>
+      </a>
+      <a href="join.html" class="nav-btn nav-btn-join">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+        <span>Join</span>
+      </a>
+    </div>
+    <div class="nav-right" id="nav-right">
+      <a href="../auth.html" class="nav-login">Log in</a>
+    </div>
+  </nav>
+
+  <main class="explore-main">
+    <div class="setup-container">
+      <h1 class="setup-title">Quiz Setup</h1>
+      
+      <div class="form-group">
+        <label>Quiz Name</label>
+        <input type="text" id="quiz-name" class="setup-input" placeholder="Enter a catchy name..." />
+      </div>
+
+      <div class="form-group">
+        <label>Quiz Image</label>
+        <div class="image-upload-box" id="image-dropzone" onclick="document.getElementById('file-input').click()">
+          <div id="image-preview-text">
+            <span>📷 Click to upload image</span>
+          </div>
+          <img id="image-preview" src="" style="display:none" />
+        </div>
+        <input type="file" id="file-input" style="display:none" accept="image/*" onchange="handleImage(event)" />
+      </div>
+
+      <div class="form-group">
+        <label>Quiz Type</label>
+        <div class="type-grid">
+          <div class="type-card active" onclick="setType('multiple')" id="type-multiple">
+            <i>☑️</i>
+            <span>Multiple Choice</span>
+          </div>
+          <div class="type-card" onclick="setType('open')" id="type-open">
+            <i>✏️</i>
+            <span>Open-Ended</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-create-quiz" onclick="startCreating()">Create Quiz</button>
+    </div>
+  </main>
+
+  <script src="../js/explore.js"></script>
+  <script>
+    let selectedType = 'multiple';
+    let imageData = null;
+
+    // Require Auth
+    window.addEventListener('DOMContentLoaded', () => {
+       const user = localStorage.getItem('mock_user');
+       if (!user) {
+         window.location.href = '../auth.html';
+       }
+    });
+
+    function handleImage(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        imageData = event.target.result;
+        document.getElementById('image-preview').src = imageData;
+        document.getElementById('image-preview').style.display = 'block';
+        document.getElementById('image-preview-text').style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setType(type) {
+      selectedType = type;
+      document.getElementById('type-multiple').classList.toggle('active', type === 'multiple');
+      document.getElementById('type-open').classList.toggle('active', type === 'open');
+    }
+
+    function startCreating() {
+      const name = document.getElementById('quiz-name').value.trim();
+      if (!name) { alert('Please enter a quiz name'); return; }
+
+      // Save setup data
+      sessionStorage.setItem('setup_quiz_name', name);
+      sessionStorage.setItem('setup_quiz_image', imageData || '');
+      sessionStorage.setItem('setup_quiz_type', selectedType);
+      
+      window.location.href = '../creator/quiz-editor.html';
+    }
+  </script>
+</body>
+</html>

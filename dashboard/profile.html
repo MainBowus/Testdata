@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile – DataQuiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/explore.css" />
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+<body>
+
+  <div class="bg" style="position: fixed; inset: 0; z-index: -1; background: linear-gradient(to right, #05162a 0%, #0d2137 50%, #162e4a 100%);"></div>
+
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <img src="../assets/images/logo.png" alt="QuizDATA Logo" />
+    </a>
+    <div class="nav-btns">
+      <a href="explore.html" class="nav-btn nav-btn-explore">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Explore</span>
+      </a>
+      <a href="create-quiz.html" class="nav-btn nav-btn-create">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Create</span>
+      </a>
+      <a href="join.html" class="nav-btn nav-btn-join">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+        <span>Join</span>
+      </a>
+    </div>
+    <div class="nav-right" id="nav-right">
+      <a href="../auth.html?redirect=dashboard/profile.html" class="nav-login">Log in</a>
+    </div>
+  </nav>
+
+  <main class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-ava" id="p-ava">?</div>
+        <div class="profile-info">
+          <h1 id="p-name">Username</h1>
+          <p id="p-email-top">user@example.com</p>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">Email</div>
+          <div class="info-val" id="p-email">user@example.com</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Password</div>
+          <div class="info-val">••••••••</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="my-quizzes-title">My Created Quizzes</h2>
+    <div class="rec-grid" id="my-quizzes-grid"></div>
+  </main>
+
+  <!-- ===== QUIZ MODAL ===== -->
+  <div class="modal-overlay" id="quiz-modal">
+    <div class="modal-box">
+
+      <button class="modal-close" onclick="closeQuizModal()" style="top: 25px; right: 25px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ff3b5c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <h2 id="modal-title" style="font-family: 'Archivo Black', sans-serif; font-size: 42px; color: #fff; margin-bottom: 25px; text-align: center;">Quiz Title</h2>
+
+      <div class="modal-preview"></div>
+
+      <p class="modal-q-count">Question amount : <span id="modal-q-num">0</span></p>
+
+      <button class="modal-host-btn" onclick="hostGame()">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <span>Host game live</span>
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </button>
+
+      <p class="modal-subtitle" style="margin-top: 25px;">Go live, share the code, and watch the competition begin! Real-time questions. Real-time excitement.</p>
+
+    </div>
+  </div>
+
+  <!-- Logout Modal -->
+  <div id="logout-modal" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);opacity:0;transition:opacity 0.2s;">
+    <div style="background:white;border-radius:24px;padding:40px;width:320px;text-align:center;">
+      <h3 style="font-family:'Archivo Black';font-size:22px;margin-bottom:15px;color:#333;">Log out?</h3>
+      <p style="font-family:'Nunito';font-weight:600;color:#666;margin-bottom:30px;">Are you sure you want to log out?</p>
+      <div style="display:flex;gap:10px;justify-content:center;">
+        <button onclick="closeLogoutModal()" style="padding:10px 20px;border-radius:50px;border:none;background:#eee;color:#333;font-family:'Archivo Black';cursor:pointer;">Cancel</button>
+        <button onclick="confirmLogout()" style="padding:10px 20px;border-radius:50px;border:none;background:#ff3b5c;color:#fff;font-family:'Archivo Black';cursor:pointer;">Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/profile.js"></script>
+</body>
+</html>

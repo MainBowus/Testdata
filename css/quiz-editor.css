@@ -1,0 +1,377 @@
+/* ===========================
+   css/quiz-editor.css
+   Quiz Editor Page Styles
+   =========================== */
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  background: #1a0040;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   TOP BAR
+   =========================== */
+.editor-topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 12px;
+  z-index: 200;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.topbar-logo {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 900;
+  font-size: 18px;
+  color: #1a1a1a;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.topbar-title-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.topbar-title-input {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  outline: none;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  color: #333;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.topbar-title-input:focus {
+  border-color: #00B4FF;
+  box-shadow: 0 0 0 3px rgba(0,180,255,0.15);
+  background: #fff;
+}
+.topbar-title-input::placeholder { color: #aaa; }
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.topbar-btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 8px 22px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+}
+.topbar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  filter: brightness(1.05);
+}
+
+.btn-exit {
+  background: #FF4060;
+  color: #fff;
+}
+.btn-save {
+  background: #00D17A;
+  color: #fff;
+}
+
+/* ===========================
+   MAIN EDITOR AREA
+   =========================== */
+.editor-main {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background image */
+.editor-bg {
+  position: fixed;
+  inset: 56px 0 0 0;
+  background-image: url('../assets/images/BG2.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.editor-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 0, 60, 0.45);
+}
+
+/* ===========================
+   QUESTION TABS
+   =========================== */
+.question-tabs {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 20px 0;
+  width: 100%;
+  max-width: 900px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.question-tabs::-webkit-scrollbar { display: none; }
+
+.q-tab {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.q-tab:hover { background: rgba(255,255,255,0.4); transform: scale(1.1); }
+.q-tab.active {
+  background: #fff;
+  color: #1a0040;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.q-tab-add {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.5);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.q-tab-add:hover {
+  border-color: #fff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ===========================
+   EDITOR CARD
+   =========================== */
+.editor-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Question input */
+.question-input-wrap {
+  width: 100%;
+}
+
+.question-input {
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.92);
+  color: #1a1a1a;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.question-input:focus {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,180,255,0.3), 0 4px 20px rgba(0,0,0,0.2);
+}
+.question-input::placeholder { color: #aaa; font-weight: 600; }
+
+/* Media upload */
+.media-upload-area {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.18);
+  border: 2px dashed rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.media-upload-area:hover {
+  background: rgba(255,255,255,0.28);
+  border-color: rgba(255,255,255,0.7);
+}
+
+.media-upload-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.85);
+}
+
+.upload-icon { opacity: 0.8; }
+
+.upload-hint {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+#media-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ===========================
+   ANSWER OPTIONS GRID
+   =========================== */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.answer-option {
+  position: relative;
+  border-radius: 16px;
+  padding: 40px 52px 18px 38px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.answer-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.answer-cyan   { background: #007e8a; }
+.answer-red    { background: #FF3B6B; }
+.answer-purple { background: #C84BFF; }
+.answer-yellow { background: #FFB800; }
+
+.answer-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+}
+.answer-input::placeholder {
+  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+}
+
+.answer-correct-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.answer-correct-btn:hover {
+  background: rgba(255,255,255,0.3);
+  border-color: #fff;
+  color: #fff;
+}
+.answer-correct-btn.correct {
+  background: rgba(255,255,255,0.9);
+  border-color: #fff;
+  color: #1a0040;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+}
+
+/* ===========================
+   TOAST
+   =========================== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.toast.success { background: #00D17A; }
+.toast.error   { background: #FF3B6B; }
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 600px) {
+  .answers-grid { grid-template-columns: 1fr; }
+  .topbar-title-input { max-width: 180px; font-size: 13px; }
+  .topbar-btn { padding: 7px 14px; font-size: 13px; }
+}

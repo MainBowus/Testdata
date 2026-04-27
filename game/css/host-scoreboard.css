@@ -1,0 +1,162 @@
+/* ===========================
+   css/host-scoreboard.css
+   Redesign based on screenshot
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #05162a;
+  --box-bg: #1c2c43;
+  --first-green: #ccff00;
+}
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #05162a 0%, #0d2137 50%, #162e4a 100%);
+  color: #fff;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HUD (TOP) ===== */
+.hq-hud {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.hud-left, .hud-right {
+  display: flex;
+  gap: 15px;
+}
+
+.hud-box {
+  background: var(--box-bg);
+  padding: 10px 25px;
+  border: 1.5px solid #000;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.next-btn {
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  background: var(--box-bg);
+  padding: 10px 25px;
+  border: 1.5px solid #000;
+  border-radius: 0; /* Remove rounded corners */
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 24px;
+}
+
+/* ===== SCOREBOARD TITLE ===== */
+.scoreboard-header {
+  text-align: center;
+  margin: 10px 0 30px;
+}
+
+.sb-title {
+  font-size: 80px;
+  letter-spacing: 5px;
+  color: #fff;
+  text-shadow: 4px 4px 0px #000;
+}
+
+/* ===== MAIN AREA ===== */
+.sb-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px 60px;
+}
+
+.sb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Base card styling */
+.sb-card {
+  display: flex;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--box-bg);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.sb-rank-num {
+  font-size: 60px;
+  margin-right: 30px;
+  text-shadow: 3px 3px 0px #000;
+  min-width: 60px;
+}
+
+.sb-username {
+  font-size: 42px;
+  flex: 1;
+}
+
+.sb-score-group {
+  text-align: right;
+}
+
+.sb-score-label {
+  display: block;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.sb-score-val {
+  font-size: 56px;
+  line-height: 1;
+}
+
+/* ===== RANK 1: THE BIG GREEN BOX ===== */
+.sb-card.first {
+  background: var(--first-green);
+  color: #000;
+  padding: 25px 40px;
+  border: none;
+  box-shadow: 0 15px 40px rgba(204, 255, 0, 0.2);
+  margin-bottom: 10px; /* Gap from the rest */
+}
+
+.sb-card.first .sb-rank-num {
+  font-size: 90px;
+  text-shadow: 4px 4px 0px #fff, 8px 8px 0px #000;
+}
+
+.sb-card.first .sb-username {
+  font-size: 56px;
+}
+
+.sb-card.first .sb-score-val {
+  font-size: 80px;
+}
+
+/* ===== ANIMATION ===== */
+.sb-card {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: cardIn 0.5s ease-out forwards;
+}
+
+@keyframes cardIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.sb-card:nth-child(2) { animation-delay: 0.1s; }
+.sb-card:nth-child(3) { animation-delay: 0.2s; }
+.sb-card:nth-child(4) { animation-delay: 0.3s; }

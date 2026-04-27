@@ -1,0 +1,164 @@
+/* ===========================
+   css/host-lobby.css - First Adjustment Restored
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #05162a;
+  --card-bg: #1c2c43;
+  --accent-cyan: #00d2ff;
+  --neon-green: #ccff00;
+}
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #102a44 0%, #05162a 100%);
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER BLOCK ===== */
+.lobby-header-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+
+.header-card {
+  display: flex;
+  background: #1c2c43;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-logo-section {
+  background: #23344d;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-logo-section img { height: 60px; width: auto; }
+
+.header-pin-section {
+  padding: 15px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pin-label { font-size: 18px; color: #fff; margin-bottom: 5px; }
+.pin-number { font-size: 56px; letter-spacing: 4px; line-height: 1; }
+
+.header-qr-section {
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+#qrcode img {
+  display: block;
+}
+
+/* ===== QUIZ INFO ===== */
+.quiz-info-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.quiz-title {
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.title-underline {
+  width: 250px;
+  height: 8px;
+  background: #aaa;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* ===== PLAYER GRID ===== */
+.lobby-main {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.waiting-text {
+  font-size: 24px;
+  color: var(--accent-cyan);
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+  margin-top: 40px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.player-card {
+  background: #1c2c43;
+  padding: 15px 25px;
+  border-left: 10px solid #000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  font-size: 24px;
+  text-align: left;
+  animation: slideIn 0.4s ease-out both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== START BUTTON ===== */
+.lobby-footer {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.start-btn {
+  background: var(--neon-green);
+  color: #000;
+  border: none;
+  border-radius: 12px; /* Pill shape */
+  padding: 15px 80px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
+  transition: transform 0.1s;
+}

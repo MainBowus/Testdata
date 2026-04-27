@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Host Lobby – DataQuiz</title>
+  <link rel="stylesheet" href="../css/host-lobby.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== TOP HEADER BLOCK ===== -->
+  <div class="lobby-header-container">
+    <div class="header-card">
+      <div class="header-logo-section">
+        <img src="../../assets/images/logo.png" alt="Logo" />
+      </div>
+      <div class="header-pin-section">
+        <div class="pin-label">Game PIN</div>
+        <div class="pin-number" id="game-pin">0000000</div>
+      </div>
+      <div class="header-qr-section">
+        <div id="qrcode"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== QUIZ INFO ===== -->
+  <div class="quiz-info-section">
+    <h1 class="quiz-title" id="display-quiz-title">QUIZ TITLE</h1>
+    <div class="title-underline"></div>
+  </div>
+
+  <!-- ===== PLAYER AREA ===== -->
+  <main class="lobby-main" id="lobby-main">
+    <div class="waiting-text" id="waiting-section">Waiting for players to join....</div>
+    <div class="players-grid" id="players-grid" style="display:none;"></div>
+  </main>
+
+  <!-- ===== FOOTER (START BTN) ===== -->
+  <footer class="lobby-footer">
+    <button class="start-btn" id="start-btn" onclick="startGame()">START</button>
+  </footer>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="../js/host-lobby.js"></script>
+</body>
+</html>

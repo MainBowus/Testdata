@@ -1,0 +1,295 @@
+/* =====================
+   css/join.css
+   Join page styles - Redesign with Archivo Black
+   ===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #05162a;
+  --card-bg: #0d2137;
+  --accent-cyan: #00d2ff;
+  --input-bg: #fff5f5;
+  --btn-join: #3a536d;
+  --header-color: #2A3D59;
+  --text-white: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Archivo Black', sans-serif;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+/* ---- BACKGROUND ---- */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to right, #05162a 0%, #0d2137 50%, #162e4a 100%);
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: var(--header-color);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-btns {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  min-width: 80px;
+  border: 1.5px solid transparent;
+}
+
+.nav-btn svg {
+  margin-bottom: 2px;
+}
+
+.nav-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn-join {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+}
+
+.nav-right {
+  display: none; /* No login button as requested */
+}
+
+/* ---- CENTER WRAP ---- */
+.center-wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* ---- CARD ---- */
+.pin-card, .name-card {
+  background: var(--card-bg);
+  border-radius: 35px;
+  padding: 40px 30px;
+  width: 480px;
+  text-align: center;
+  border: 4px solid var(--accent-cyan);
+  box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+  animation: cardIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+.name-card {
+  display: none;
+}
+
+@keyframes cardIn {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0);    }
+}
+
+.card-logo img {
+  height: 100px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.card-sub {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* ---- INPUTS ---- */
+.pin-input, .name-input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: #555;
+  background: var(--input-bg);
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.pin-input::placeholder, .name-input::placeholder {
+  color: #aaa;
+}
+
+/* ---- BUTTONS ---- */
+.btn-join, .btn-letsgo {
+  width: 180px;
+  padding: 12px;
+  border-radius: 50px;
+  border: 1px solid #111;
+  background: var(--btn-join);
+  color: #000;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn-join:hover, .btn-letsgo:hover {
+  background: #4a6a8a;
+  transform: translateY(-2px);
+}
+
+.btn-join:active, .btn-letsgo:active {
+  transform: scale(0.95);
+}
+
+.btn-back {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: #888;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---- TOAST ---- */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #fff;
+  color: #333;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-family: 'Archivo Black', sans-serif;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ========== MOBILE RESPONSIVE (Strict Redesign) ========== */
+@media (max-width: 768px) {
+  html, body { 
+    overflow: hidden; 
+    background: #05162a; /* Solid dark blue as per screenshot */
+  }
+  
+  .bg { background: linear-gradient(to right, #05162a 0%, #0d2137 50%, #162e4a 100%) !important; }
+
+  /* REMOVE NAVIGATION COMPLETELY ON MOBILE */
+  .navbar { display: none !important; }
+
+  .center-wrap {
+    position: fixed;
+    inset: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .pin-card, .name-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 60px 30px;
+    border-radius: 60px;
+    border: 15px solid rgba(255, 255, 255, 0.1); /* Thick grey border from screenshot */
+    background: #11233a;
+    box-shadow: none;
+    text-align: center;
+  }
+
+  .card-logo img { height: 110px; margin-bottom: 25px; }
+  
+  .card-sub { 
+    font-size: 42px; 
+    font-weight: 900; 
+    margin-bottom: 35px; 
+    color: #fff;
+    font-family: 'Archivo Black', sans-serif;
+  }
+
+  .pin-input, .name-input {
+    width: 100%;
+    font-size: 26px;
+    padding: 20px;
+    border-radius: 60px;
+    margin-bottom: 40px;
+    background: #fff5f5;
+    color: #555;
+    font-weight: 900;
+  }
+  .pin-input::placeholder { color: #aaa; }
+
+  .btn-join {
+    background: #ff3b6b !important; /* Vibrant Pink from screenshot */
+    color: #000;
+    width: 100%;
+    max-width: 220px;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Archivo Black', sans-serif;
+    box-shadow: 0 5px 20px rgba(255, 59, 107, 0.4);
+  }
+
+  .btn-letsgo {
+    background: #00e676 !important; /* Vibrant Green */
+    color: #000;
+    width: 100%;
+    max-width: 220px;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Archivo Black', sans-serif;
+    box-shadow: 0 5px 20px rgba(0, 230, 118, 0.4);
+  }
+}

@@ -1,0 +1,129 @@
+/* =====================
+   css/index.css
+   Landing page styles - Redesign with Archivo Black
+   ===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap');
+
+:root {
+  --bg-dark: #05162a;
+  --header-color: #2A3D59;
+  --accent-cyan: #00d2ff;
+  --text-white: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: 'Archivo Black', sans-serif;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+}
+
+/* ---- BACKGROUND ---- */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to right, #05162a 0%, #0d2137 50%, #162e4a 100%);
+}
+
+/* ---- NAVBAR ---- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: var(--header-color);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 50px;
+  width: auto;
+}
+
+.nav-btns {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  min-width: 80px;
+  border: 1.5px solid transparent;
+}
+
+.nav-btn svg {
+  margin-bottom: 2px;
+}
+
+.nav-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn-explore { color: #fff; }
+.nav-btn-create  { color: #fff; }
+.nav-btn-join    { color: #fff; }
+
+.nav-right {
+  display: none; /* No login button on index as requested */
+}
+
+/* ---- WELCOME TEXT ---- */
+.welcome-wrap {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  text-align: center;
+}
+
+.welcome-sub {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.welcome-logo img {
+  height: 180px;
+  width: auto;
+  animation: fadeUp 0.6s ease 0.15s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}

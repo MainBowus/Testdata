@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #05162a;
+}
+
+.blurred-bg {
+  filter: blur(10px) brightness(0.4);
+  pointer-events: none;
+}
+
+/* Overlay setup */
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.diagonal-banner {
+  width: 150%; /* Large enough to cross screen diagonally */
+  padding: 40px 0;
+  text-align: center;
+  transform: rotate(-10deg);
+  border-top: 8px solid #000;
+  border-bottom: 8px solid #000;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: bannerSlide 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes bannerSlide {
+  from { transform: rotate(-10deg) scale(0.8) translateY(100px); opacity: 0; }
+  to { transform: rotate(-10deg) scale(1) translateY(0); opacity: 1; }
+}
+
+.diagonal-banner span {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(30px, 8vw, 80px);
+  color: #000;
+  letter-spacing: 5px;
+}
+
+/* Correct state */
+.correct-banner {
+  background: #5ccb5f; /* Green from screenshot */
+}
+
+/* Incorrect state */
+.wrong-banner {
+  background: #d94d4d; /* Red from screenshot */
+}

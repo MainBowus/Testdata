@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizDATA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+
+  <div class="bg"></div>
+  <nav class="navbar">
+    <a class="navbar-logo" href="index.html">
+      <img src="assets/images/logo.png" alt="QuizDATA Logo" />
+    </a>
+    <div class="nav-btns">
+      <a href="dashboard/explore.html" class="nav-btn nav-btn-explore">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Explore</span>
+      </a>
+      <a href="dashboard/create-quiz.html" class="nav-btn nav-btn-create">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Create</span>
+      </a>
+      <a href="dashboard/join.html" class="nav-btn nav-btn-join">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+        <span>Join</span>
+      </a>
+    </div>
+    <div class="nav-right" id="nav-right">
+      <a href="auth.html?redirect=index.html" class="nav-login">Log in</a>
+    </div>
+  </nav>
+
+  <div class="welcome-wrap">
+    <div class="welcome-logo" style="color: white; text-align: center; line-height: 1.2;">
+      <div style="font-size: clamp(24px, 5vw, 40px); opacity: 0.9;">Welcome to</div>
+      <div style="font-size: clamp(60px, 12vw, 120px); letter-spacing: 2px;">DataQuiz</div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

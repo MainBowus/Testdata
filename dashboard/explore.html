@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore - QuizApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/explore.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <img src="../assets/images/logo.png" alt="QuizDATA Logo" />
+    </a>
+
+    <div class="nav-btns">
+      <a href="explore.html" class="nav-btn nav-btn-explore active">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Explore</span>
+      </a>
+      <a href="create-quiz.html" class="nav-btn nav-btn-create">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        <span>Create</span>
+      </a>
+      <a href="join.html" class="nav-btn nav-btn-join">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><path d="M6 12h4M8 10v4M15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3-3a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+        <span>Join</span>
+      </a>
+    </div>
+
+    <div class="nav-right" id="nav-right">
+      <a href="../auth.html?redirect=dashboard/explore.html" class="nav-login">Log in</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="explore-main">
+
+
+    <!-- SEARCH BAR -->
+    <div class="search-wrapper" style="position: relative;">
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search" autocomplete="off" />
+      </div>
+      <div id="search-dropdown" class="search-dropdown"></div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <section class="categories-section">
+      <h2 class="section-title">Explore</h2>
+      <div class="categories-grid">
+        <button class="cat-btn cat-blue" onclick="openQuizModal({ title: 'Food', questionCount: 10 })">Food</button>
+        <button class="cat-btn cat-yellow" onclick="openQuizModal({ title: 'Sports', questionCount: 10 })">Sports</button>
+        <button class="cat-btn cat-pink" onclick="openQuizModal({ title: 'Meme', questionCount: 10 })">Meme</button>
+        <button class="cat-btn cat-purple" onclick="openQuizModal({ title: 'Riddles', questionCount: 10 })">Riddles</button>
+      </div>
+    </section>
+
+    <!-- POPULAR QUIZ CAROUSEL -->
+    <section class="popular-section">
+      <h2 class="section-title center" style="margin-bottom:30px;">Popular Quiz</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev">&#8592;</button>
+        <div class="carousel-card" onclick="openQuizModal({ title: 'Guess the character', questionCount: 10 })" style="cursor:pointer;">
+          <div class="quiz-card-featured" style="flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+            <div class="quiz-card-inner">
+              <span class="quiz-label" style="font-size: 14px; background: rgba(0,0,0,0.5); padding: 4px 12px; border-radius: 50px; margin-bottom:10px; display:inline-block;">🔥 Hot</span>
+              <h3 style="font-size: 28px; margin-bottom: 8px;">Guess the character</h3>
+              <p style="font-size: 16px; opacity:0.8;">Test your knowledge!</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next">&#8594;</button>
+      </div>
+    </section>
+
+    <!-- WHITE CARD SECTION -->
+    <section class="recommendations-section">
+
+      <!-- Quiz you might like -->
+      <div class="rec-block">
+        <h3 class="rec-title">Quiz you might like</h3>
+        <div class="rec-grid">
+          <div class="rec-card" onclick="openQuizModal({ title: 'What', questionCount: 5 })"><span>What</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'da', questionCount: 5 })"><span>da</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'dog', questionCount: 5 })"><span>dog</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'doin', questionCount: 5 })"><span>doin</span></div>
+        </div>
+      </div>
+
+      <!-- Play again -->
+      <div class="rec-block">
+        <h3 class="rec-title">Play again?</h3>
+        <div class="rec-grid">
+          <div class="rec-card" onclick="openQuizModal({ title: 'Meme', questionCount: 8 })"><span>Meme</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'Another meme', questionCount: 8 })"><span>Another meme</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'Meme again', questionCount: 8 })"><span>Meme again</span></div>
+          <div class="rec-card" onclick="openQuizModal({ title: 'Meh Meh', questionCount: 8 })"><span>Meh Meh</span></div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===== QUIZ MODAL ===== -->
+  <div class="modal-overlay" id="quiz-modal">
+    <div class="modal-box">
+
+      <button class="modal-close" onclick="closeQuizModal()" style="top: 15px; right: 5px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ff3b5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <h2 id="modal-title" style="font-family: 'Archivo Black', sans-serif; font-size: 32px; color: #fff; margin-bottom: 25px; text-transform: capitalize;">Quiz Title</h2>
+
+      <div class="modal-preview">
+        <!-- Content will be populated by JS or just keep the styled box -->
+      </div>
+
+      <p class="modal-q-count">Question amount : <span id="modal-q-num">10</span></p>
+
+      <div class="host-dropdown-wrap">
+        <button class="modal-host-btn" onclick="hostGame('normal')">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span>Host game live</span>
+        </button>
+      </div>
+
+      <p class="modal-subtitle">Go live, share the code, and watch the competition begin! Real-time questions. Real-time excitement.</p>
+
+    </div>
+  </div>
+
+  <script src="../js/explore.js"></script>
+</body>
+</html>

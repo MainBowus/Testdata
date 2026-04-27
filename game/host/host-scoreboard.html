@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scoreboard – DataQuiz</title>
+  <link rel="stylesheet" href="../css/host-scoreboard.css?v=1" />
+</head>
+<body>
+  <div class="hq-bg"></div>
+
+  <div class="hq-hud">
+    <div class="hud-left">
+      <div class="hud-box" id="hud-type">Multiple Choice</div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-box" id="hud-progress">1 / 10</div>
+      <button class="hud-box next-btn" onclick="goNext()">NEXT</button>
+    </div>
+  </div>
+
+  <div class="scoreboard-header">
+    <h1 class="sb-title">SCOREBOARD</h1>
+  </div>
+
+  <main class="sb-main">
+    <div class="sb-list" id="sb-list"></div>
+  </main>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="../js/host-scoreboard.js"></script>
+</body>
+</html>

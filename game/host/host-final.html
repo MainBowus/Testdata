@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Results – DataQuiz</title>
+  <link rel="stylesheet" href="../css/host-final.css" />
+</head>
+<body>
+  <div class="final-bg"></div>
+  <canvas id="confetti-canvas"></canvas>
+
+  <main class="final-main">
+    <div class="winner-section">
+      <div class="winner-title">WINNER</div>
+      <div class="winner-sub" id="winner-sub">Username has won the game!!!</div>
+    </div>
+
+    <div class="podium-wrap">
+      <div class="podium-slot">
+        <div class="podium-avatar ava-silver">🥈</div>
+        <div class="podium-info" id="info-2">Username</div>
+        <div class="podium-block block-2"><span class="podium-num">2</span></div>
+      </div>
+      <div class="podium-slot">
+        <div class="podium-avatar ava-gold">🥇</div>
+        <div class="podium-info" id="info-1">Username</div>
+        <div class="podium-block block-1"><span class="podium-num">1</span></div>
+      </div>
+      <div class="podium-slot">
+        <div class="podium-avatar ava-bronze">🥉</div>
+        <div class="podium-info" id="info-3">Username</div>
+        <div class="podium-block block-3"><span class="podium-num">3</span></div>
+      </div>
+    </div>
+
+    <button class="end-btn" onclick="endGame()">End game</button>
+  </main>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="../js/host-final.js"></script>
+</body>
+</html>
