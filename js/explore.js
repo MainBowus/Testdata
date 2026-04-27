@@ -1,6 +1,6 @@
 // ===== EXPLORE PAGE JS =====
 
-const API_URL = 'http://localhost:5000/api'
+const API_URL = 'https://backend-dataquiz.onrender.com/api'
 
 // ===== FETCH DATA FROM DATABASE =====
 async function fetchQuizzes() {
